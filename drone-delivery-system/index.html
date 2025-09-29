@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Entrega por Drones - DTI Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚁 Sistema de Entrega por Drones</h1>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span>Tempo de Simulação:</span>
+                    <span id="simulation-time">00:00:00</span>
+                </div>
+                <div class="status-item">
+                    <span>Status:</span>
+                    <span id="simulation-status" class="status-running">Em Execução</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-grid">
+            <!-- Mapa da Cidade -->
+            <div class="map-section">
+                <h2>Mapa da Cidade</h2>
+                <canvas id="city-map" width="600" height="600"></canvas>
+                <div class="map-legend">
+                    <div><span class="legend-base">⬛</span> Base</div>
+                    <div><span class="legend-drone">🚁</span> Drone</div>
+                    <div><span class="legend-delivery">📦</span> Entrega</div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <div class="controls-section">
+                <!-- Configuração de Drones -->
+                <div class="panel">
+                    <h3>Configuração de Drones</h3>
+                    <div class="form-group">
+                        <label>Número de Drones:</label>
+                        <input type="number" id="drone-count" value="3" min="1" max="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Capacidade (kg):</label>
+                        <input type="number" id="drone-capacity" value="10" min="1" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Alcance (km):</label>
+                        <input type="number" id="drone-range" value="20" min="5" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Bateria (%):</label>
+                        <input type="number" id="drone-battery" value="100" min="50" max="100">
+                    </div>
+                    <button onclick="updateDroneConfig()" class="btn btn-primary">Atualizar Configuração</button>
+                </div>
+
+                <!-- Adicionar Pedido -->
+                <div class="panel">
+                    <h3>Novo Pedido</h3>
+                    <div class="form-group">
+                        <label>Localização X:</label>
+                        <input type="number" id="delivery-x" placeholder="0-50" min="0" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Localização Y:</label>
+                        <input type="number" id="delivery-y" placeholder="0-50" min="0" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Peso (kg):</label>
+                        <input type="number" id="delivery-weight" placeholder="0.1-10" step="0.1" min="0.1" max="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Prioridade:</label>
+                        <select id="delivery-priority">
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+                    <button onclick="addDelivery()" class="btn btn-success">Adicionar Pedido</button>
+                    <button onclick="generateRandomDeliveries()" class="btn btn-secondary">Gerar 10 Pedidos Aleatórios</button>
+                </div>
+
+                <!-- Controles de Simulação -->
+                <div class="panel">
+                    <h3>Controles de Simulação</h3>
+                    <button onclick="startSimulation()" class="btn btn-success">▶ Iniciar</button>
+                    <button onclick="pauseSimulation()" class="btn btn-warning">⏸ Pausar</button>
+                    <button onclick="resetSimulation()" class="btn btn-danger">⏹ Resetar</button>
+                    <div class="form-group">
+                        <label>Velocidade:</label>
+                        <input type="range" id="simulation-speed" min="1" max="10" value="5">
+                        <span id="speed-display">5x</span>
+                    </div>
+                </div>
+
+                <!-- Zonas Restritas removidas -->
+            </div>
+
+            <!-- Status dos Drones -->
+            <div class="drones-status">
+                <h3>Status dos Drones</h3>
+                <div id="drones-list"></div>
+            </div>
+
+            <!-- Fila de Entregas -->
+            <div class="delivery-queue">
+                <h3>Fila de Entregas</h3>
+                <div id="delivery-queue-list"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard de Estatísticas -->
+        <div class="dashboard">
+            <h2>📊 Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Entregas Realizadas</h4>
+                    <div class="stat-value" id="deliveries-completed">0</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Entregas Pendentes</h4>
+                    <div class="stat-value" id="deliveries-pending">0</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Tempo Médio de Entrega</h4>
+                    <div class="stat-value" id="avg-delivery-time">00:00</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Distância Total Percorrida</h4>
+                    <div class="stat-value" id="total-distance">0 km</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Eficiência de Combustível</h4>
+                    <div class="stat-value" id="fuel-efficiency">100%</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Drone Mais Eficiente</h4>
+                    <div class="stat-value" id="best-drone">-</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Viagens Totais</h4>
+                    <div class="stat-value" id="total-trips">0</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Otimização de Rotas</h4>
+                    <div class="stat-value" id="route-optimization">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log de Eventos -->
+        <div class="event-log">
+            <h3>📝 Log de Eventos</h3>
+            <div id="event-log-list"></div>
+        </div>
+
+        <!-- Feedback do Cliente -->
+        <div class="customer-feedback">
+            <h3>💬 Feedback dos Clientes</h3>
+            <div id="customer-feedback-list"></div>
+        </div>
+    </div>
+
+    <script src="drone.js"></script>
+    <script src="optimizer.js"></script>
+    <script src="app.js"></script>
+    <script src="tests.js"></script>
+</body>
+</html>

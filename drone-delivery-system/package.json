@@ -1,0 +1,36 @@
+{
+  "name": "drone-delivery-system",
+  "version": "1.0.0",
+  "description": "Sistema de simulação de entregas urbanas por drones - DTI Digital",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo 'Abra o navegador e execute runTests() no console'"
+  },
+  "keywords": [
+    "drone",
+    "delivery",
+    "simulation",
+    "optimization",
+    "logistics",
+    "javascript",
+    "canvas",
+    "algorithm",
+    "express",
+    "nodejs"
+  ],
+  "author": "Candidato DTI Digital",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/drone-delivery-system"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

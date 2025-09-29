@@ -1,0 +1,75 @@
+========================================================
+   SISTEMA DE ENTREGA POR DRONES - DTI DIGITAL
+========================================================
+
+📋 INSTRUÇÕES RÁPIDAS DE INSTALAÇÃO E EXECUÇÃO
+
+1. INSTALAR DEPENDÊNCIAS:
+   npm install
+
+2. EXECUTAR O PROJETO:
+   npm start
+
+3. ACESSAR O SISTEMA:
+   Abra o navegador em: http://localhost:8000
+
+========================================================
+
+📦 ESTRUTURA DO PROJETO:
+
+   drone-delivery-system/
+   ├── index.html         (Interface)
+   ├── styles.css         (Estilos)
+   ├── drone.js           (Classe Drone)
+   ├── optimizer.js       (Algoritmos)
+   ├── app.js             (Lógica principal)
+   ├── tests.js           (Testes unitários)
+   ├── server.js          (Servidor Node.js)
+   └── package.json       (Configuração)
+
+========================================================
+
+🎮 COMO USAR:
+
+   1. Configure o número de drones (1-10)
+   2. Adicione pedidos ou gere aleatórios
+   3. Clique em "▶ Iniciar" para começar
+   4. Observe os drones coletando e entregando
+
+========================================================
+
+🧪 EXECUTAR TESTES:
+
+   1. Abra o sistema no navegador
+   2. Abra o Console (F12)
+   3. Digite: runTests()
+
+========================================================
+
+📨 PARA ENVIAR O PROJETO:
+
+   1. Execute: git init
+   2. Execute: git add .
+   3. Execute: git commit -m "Sistema de Drones"
+   4. Crie repositório no GitHub
+   5. Execute: git remote add origin [URL_DO_REPO]
+   6. Execute: git push -u origin main
+
+   Email: rh.hakuna@dtidigital.com.br
+   Título: Teste prático dti digital – [Seu Nome]
+   Corpo: Link do GitHub + Tecnologia: JavaScript/Node.js
+
+========================================================
+
+✅ TODOS OS REQUISITOS FORAM IMPLEMENTADOS:
+
+   • Sistema de estados dos drones
+   • Algoritmos de otimização
+   • Sistema de bateria e recarga
+   • Zonas restritas
+   • Feedback do cliente
+   • Dashboard completo
+   • Testes unitários
+   • Documentação completa
+
+========================================================
