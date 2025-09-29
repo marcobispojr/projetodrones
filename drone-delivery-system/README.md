@@ -275,19 +275,11 @@ Com a otimização implementada, o sistema consegue:
 - Taxa de sucesso de 100% nas entregas
 
 ## 👨‍💻 Autor
-
-Desenvolvido para o processo seletivo da DTI Digital
-
-## 📄 Licença
-
-Este projeto foi desenvolvido como parte de um processo seletivo.
+ 
+Marco: Desenvolvido para o processo seletivo da DTI Digital
 
 ## 📨 Instruções de Envio (IMPORTANTE)
 
-### ⏰ Prazo
-- **Início**: 26/09 às 10:00
-- **Entrega**: 29/09 às 10:00 (3 dias)
-- **Candidatos que não enviarem até o horário serão desclassificados**
 
 ### 📦 Como Executar Localmente
 ```bash
@@ -301,23 +293,7 @@ npm start
 http://localhost:8000
 ```
 
-### 📤 Como Enviar
 
-1. **Criar repositório no GitHub (público):**
-```bash
-git init
-git add .
-git commit -m "Sistema de Entrega por Drones - DTI Digital"
-git remote add origin https://github.com/[seu-usuario]/drone-delivery-system
-git push -u origin main
-```
-
-2. **Enviar email:**
-- **Para**: rh.hakuna@dtidigital.com.br
-- **Título**: Teste prático dti digital – [Seu Nome]
-- **Corpo do email**:
-  - Link do repositório GitHub (público)
-  - Tecnologia escolhida: JavaScript/Node.js
   - Comando para executar: `npm install && npm start`
 
 ### ✅ Checklist de Entrega
@@ -325,7 +301,6 @@ git push -u origin main
 - [ ] Testes unitários funcionando
 - [ ] Repositório público no GitHub
 - [ ] `npm start` executando em localhost:8000
-- [ ] Email enviado antes do prazo
 
 ---
 
