@@ -1,4 +1,4 @@
-# Sistema de Entrega por Drones - DTI Digital
+# Sistema de Entrega por Drones
 
 ## 📋 Descrição
 Sistema completo de simulação de entregas urbanas por drones, desenvolvido para o processo seletivo da DTI Digital. O sistema implementa algoritmos avançados de otimização para minimizar o número de viagens, respeitando regras de capacidade, alcance e prioridade.
@@ -276,7 +276,7 @@ Com a otimização implementada, o sistema consegue:
 
 ## 👨‍💻 Autor
  
-Marco: Desenvolvido para o processo seletivo da DTI Digital
+Marco
 
 ## 📨 Instruções de Envio (IMPORTANTE)
 
